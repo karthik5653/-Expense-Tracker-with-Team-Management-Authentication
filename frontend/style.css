@@ -1,0 +1,219 @@
+/* ===== BODY ===== */
+body {
+  margin: 0;                          /* Removes default browser margin */
+  font-family: "Segoe UI", Arial, sans-serif;  /* Sets the font style */
+  background: #EDF4F2;                /* Light gray-green background */
+  color: #31473A;                     /* Dark green text color */
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  display: flex;                      /* Uses flexbox for layout */
+  min-height: 100vh;                  /* Stretches container full viewport height */
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 240px;                       /* Fixed width for sidebar */
+  background: #31473A;                /* Dark green background */
+  color: #EDF4F2;                     /* Light text color */
+  padding: 20px 0;                    /* Top & bottom padding */
+  display: flex;                      /* Flexbox for column layout */
+  flex-direction: column;             /* Stack items vertically */
+  align-items: center;                /* Center items horizontally */
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15); /* Subtle right-side shadow */
+}
+
+.sidebar img {
+  border-radius: 50%;                 /* Makes image circular */
+  width: 110px;                        /* Sets fixed size */
+  height: 100px;
+  margin-bottom: 15px;                /* Space below image */
+  border: 3px solid #7C8363;          /* Green border */
+}
+
+/* ===== SIDEBAR MENU ===== */
+.menu {
+  list-style: none;                   /* Removes bullet points */
+  padding: 0;                         /* Removes default padding */
+  width: 100%;                        /* Full width */
+}
+
+.menu li {
+  padding: 15px 20px;                 /* Spacing inside each menu item */
+  cursor: pointer;                    /* Pointer cursor on hover */
+  font-size: 15px;                    /* Font size */
+  transition: background .3s, color .3s; /* Smooth hover effect */
+}
+
+.menu li:hover, 
+.menu li.active {
+  background: #7C8363;                /* Green background when active/hover */
+  color: #EDF4F2;                     /* Light text color */
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  flex: 1;                            /* Takes up remaining space */
+  padding: 25px;                      /* Space inside */
+  background: #EDF4F2;                /* Same as body bg */
+  overflow-y: auto;                   /* Enables scroll if content overflows */
+}
+
+h2 {
+  margin: 0 0 15px;                   /* Bottom margin only */
+  color: #31473A;                     /* Dark green */
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group {
+  margin-bottom: 15px;                /* Space between form fields */
+}
+
+label {
+  display: block;                     /* Force label to new line */
+  margin-bottom: 6px;                 /* Space below label */
+  font-weight: 600;                   /* Bold label */
+  color: #31473A;                     /* Dark green text */
+}
+
+input, select, textarea {
+  width: 90%;                        /* Full width */
+  padding: 10px;                      /* Inside spacing */
+  border: 1px solid #7C8363;          /* Border color */
+  border-radius: 40px;                 /* Rounded corners */
+  background: #fff;                   /* White background */
+  color: #31473A;                     /* Dark green text */
+  font-size: 14px;                    /* Medium font size */
+  outline: none;                      /* Removes default outline */
+}
+
+textarea {
+  resize: none;                       /* Prevents resizing */
+  height: 60px;                       /* Fixed height */
+}
+
+/* ===== BUTTONS ===== */
+button {
+  background: #7C8363;                /* Green background */
+  border: none;                       /* No border */
+  padding: 10px 16px;                 /* Button padding */
+  color: #fff;                        /* White text */
+  border-radius: 6px;                 /* Rounded corners */
+  cursor: pointer;                    /* Pointer cursor */
+  margin-top: 8px;                    /* Small gap on top */
+  transition: background .3s, transform .2s; /* Smooth hover */
+}
+
+button:hover {
+  background: #5f654c;                /* Darker green on hover */
+  transform: translateY(-2px);        /* Slight lift effect */
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+  display: none;                      /* Hide by default */
+}
+
+.content-section.active {
+  display: block;                     /* Show active section */
+  animation: fadeIn .3s ease;         /* Fade-in effect */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); } /* Start faded & shifted */
+  to   { opacity: 1; transform: translateY(0); }    /* End normal */
+}
+
+/* ===== APPROVAL CARDS ===== */
+.approval {
+  display: flex;                      /* Row layout */
+  justify-content: space-between;     /* Spread items */
+  background: #fff;                   /* White background */
+  padding: 12px;                      /* Inside spacing */
+  margin: 6px 0;                      /* Vertical gap */
+  border-radius: 6px;                 /* Rounded corners */
+  border-left: 4px solid #7C8363;     /* Left green border */
+  align-items: center;                /* Center vertically */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Small shadow */
+}
+
+.approval span {
+  flex: 1;                            /* Take up remaining space */
+  font-size: 14px;                    /* Smaller text */
+  color: #31473A;                     /* Dark text */
+}
+
+.approval button {
+  margin-left: 8px;                   /* Gap between buttons */
+}
+
+.approval button:first-of-type {
+  background: #31473A;                /* Dark green for approve */
+}
+.approval button:first-of-type:hover {
+  background: #25362c;                /* Darker on hover */
+}
+
+.approval button:last-of-type {
+  background: #b91c1c;                /* Red for cancel */
+}
+.approval button:last-of-type:hover {
+  background: #991b1b;                /* Darker red on hover */
+}
+
+#supportResponse {
+  margin-top: 12px;                   /* Gap above message */
+  color: #31473A;                     /* Dark green text */
+  font-weight: 500;                   /* Medium bold */
+}
+
+/* ===== DASHBOARD CARDS ===== */
+.cards {
+  display: grid;                      /* Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive columns */
+  gap: 12px;                          /* Space between cards */
+  margin-bottom: 16px;                /* Gap below grid */
+}
+
+.card {
+  background: #fff;                   /* White card */
+  border-radius: 10px;                /* Rounded */
+  padding: 16px;                      /* Inside padding */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Subtle shadow */
+}
+
+.card h3 {
+  margin: 0 0 6px;                    /* Small gap below heading */
+  font-size: 14px;                    /* Small text */
+  font-weight: 600;                   /* Semi-bold */
+  color: #5b6a5f;                     /* Muted green */
+}
+
+.card .num {
+  font-size: 26px;                    /* Large number */
+  font-weight: 700;                   /* Bold */
+}
+
+/* ===== HELPERS ===== */
+.row {
+  display: flex;                      /* Row layout */
+  gap: 10px;                          /* Spacing between children */
+}
+
+.row > * {
+  flex: 1;                            /* Equal width for children */
+}
+
+.toolbar {
+  display: flex;                      /* Row layout */
+  align-items: center;                /* Center vertically */
+  gap: 10px;                          /* Spacing between items */
+  margin-bottom: 10px;                /* Gap below */
+  flex-wrap: wrap;                    /* Wrap on smaller screens */
+}
+
+.muted {
+  color: #5b6a5f;                     /* Muted gray-green text */
+  font-size: 13px;                    /* Small size */
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="login.css">
+  
+</head>
+<body>
+    
+  <div class="container" id="container">
+    <!-- Signup Form -->
+    <div class="form-container sign-up-container">
+      <form id="signupForm">
+        <h1>Create Account</h1>
+        <input type="text" id="signupUsername" placeholder="Username" required />
+        <input type="email" id="signupEmail" placeholder="Email" required />
+        <input type="password" id="signupPassword" placeholder="Password" required />
+        <input type="password" id="signupConfirm" placeholder="Confirm Password" required />
+        <button type="submit">Sign Up</button>
+        <p id="signupMsg" class="error"></p>
+      </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container sign-in-container">
+      <form id="loginForm">
+        <h1>Sign in</h1>
+        <input type="text" id="loginUsername" placeholder="Username" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p id="loginMsg" class="error"></p>
+      </form>
+    </div>
+
+    <!-- Sliding Overlay -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>If you already have an account, login here</p>
+          <button class="ghost" id="signIn">Login</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, New User!</h1>
+          <p>New here? Create an account</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Screen -->
+ <div class="welcome" id="welcomePage">
+  <h1 id="welcomeMsg">Welcome 🎉</h1>
+  <p>You have successfully logged in!</p>
+  <button onclick="logout()">Logout</button>
+  <br><br>
+  <!-- Added Game button -->
+  <a href="http://127.0.0.1:5501/Tic-tac-toe/index.html" target="_blank">
+  <button>🎮 Play Game</button>
+</a>
+
+</div>
+
+  <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+
+
+  <script src="login.js"></script>
+</body>
+</html>

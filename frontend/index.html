@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="User">
+      <ul class="menu">
+        <li class="active" onclick="showSection('home', this)">🏠 Home</li>
+        <li onclick="showSection('expenses', this)">💰 Expenses</li>
+        <li onclick="showSection('teams', this)">👥 Teams</li>
+        <li onclick="showSection('approvals', this)">✅ Approvals</li>
+        <li onclick="showSection('reports', this)">📊 Reports</li>
+        <li onclick="showSection('support', this)">📞 Support</li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <!-- HOME -->
+      <div id="home" class="content-section active">
+        <h2>Dashboard</h2>
+        <div class="cards" id="summaryCards"></div>
+        <p class="muted">Tip: add team members first, then submit an expense and approve/reject it under Approvals.</p>
+      </div>
+
+      <!-- EXPENSES -->
+      <div id="expenses" class="content-section">
+        <h2>New Expense</h2>
+        <div class="row">
+          <div class="form-group">
+            <label>Amount (₹)</label>
+            <input type="number" id="amount" placeholder="Enter amount">
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="date">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label>Category</label>
+            <select id="category">
+              <option>Food</option>
+              <option>Travel</option>
+              <option>Movie</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Assign to Team Member</label>
+            <select id="assignedTo"></select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="description" placeholder="What is this expense about?"></textarea>
+        </div>
+
+        <button onclick="submitExpense()">Submit Expense for Approval</button>
+      </div>
+
+      <!-- TEAMS -->
+      <div id="teams" class="content-section">
+        <h2>Teams</h2>
+        <div class="row">
+          <div class="form-group">
+            <label>Member Name</label>
+            <input type="text" id="teamMemberName" placeholder="e.g., Priya Sharma">
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="teamMemberAge" placeholder="e.g., 26">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="teamMemberPhone" placeholder="e.g., 9876543210">
+          </div>
+        </div>
+        <button onclick="addTeamMember()">Add Member</button>
+        <h3>Team Members (<span id="memberCount">0</span>)</h3>
+        <ul id="teamList"></ul>
+      </div>
+
+      <!-- APPROVALS -->
+      <div id="approvals" class="content-section">
+        <h2>Approvals</h2>
+        <div id="approvalList"></div>
+      </div>
+
+      <!-- REPORTS -->
+      <div id="reports" class="content-section">
+        <h2>Reports</h2>
+        <div class="toolbar">
+          <label for="reportFilter" class="muted">Filter:</label>
+          <select id="reportFilter" onchange="generateReport()">
+            <option value="all">All</option>
+            <option value="approved">Approved Only</option>
+            <option value="cancelled">Cancelled Only</option>
+          </select>
+          <button onclick="exportCSV()">Export CSV</button>
+        </div>
+        <button onclick="generateReport()">Generate Report</button>
+        <div id="reportOutput"></div>
+      </div>
+
+      <!-- SUPPORT -->
+      <div id="support" class="content-section">
+        <h2>Support</h2>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="supportName" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea id="supportMessage" placeholder="How can we help?"></textarea>
+        </div>
+        <button onclick="sendSupport()">Send</button>
+        <p id="supportResponse"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(black,);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.6s ease;
+}
+
+
+h1 {
+  font-weight: bold;
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 20px 0 30px;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #6c63ff;
+  background-color: #6c63ff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button.ghost {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+              0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  transition: all 0.6s ease-in-out;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Overlay */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.overlay {
+  background: linear-gradient(to right, #FFE5F2,#FFE100, #FFC900,#EBE389);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+  left: 0;
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* Welcome Page */
+.welcome {
+  height: 300px;
+  width: 500px;
+  display: none;
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #74ebd5, #9face6,rgb(67, 245, 170));
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+              0 10px 10px rgba(0,0,0,0.22);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.welcome button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.welcome button:hover {
+  background: #555;
+}
+
+
+/* Light Mode (default) */
+body {
+  background: #f0f0f0;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.login-container {
+  background: #ffffff;
+  color: #333;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .login-container {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark-mode input {
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-mode button {
+  background: #555555;
+  color: #fff;
+}
+
+/* Theme toggle button */
+.theme-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #222;
+  color: #fff;
+  font-size: 9px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .theme-btn {
+  background: #ddd;
+  color: #000;
+}
